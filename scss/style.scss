@@ -1,0 +1,503 @@
+/*normalize, postcss(prefix for transition...)*/
+/* 默认layout s-md
+需要配置 @media xs 和 @media lg 的样式
+*/
+@import "./_variables.scss";
+@import "./_animation.scss";
+@import "./_layout.scss";
+@import "./_lang.scss";
+@import "./_lang-switch.scss";
+@import "./_section.scss";
+
+.main-content {
+    position: relative;
+    min-width: 400px;
+    margin-top: $header-height;
+    padding-top: $masthead-height;
+    background-color: $color-bg-blue;
+    transition: background-color 0.7s;
+
+    @media screen and (min-width: $layout-breakpoint-lg) {
+        & {
+            padding-top: 0;
+        }
+    }
+
+    .lang-switch {
+        display: none;
+        opacity: 0;
+        position: absolute;
+        top: 10px;
+        right: 3.5em;
+        z-index: 999;
+
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+
+        @media screen and (max-width: $layout-breakpoint-xs) {
+            & {
+                top: 0;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    .close-trigger {
+        display: none;
+        opacity: 0;
+        position: absolute;
+        top: 30px;
+        right: 24px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        transition: opacity 0.5s;
+        background-color: transparent !important;
+        background-image: url(../images/close.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 100;
+
+        @media screen and (max-width: $layout-breakpoint-xs) {
+            & {
+                width: 32px;
+                height: 32px;
+                top: 30px;
+            }
+        }
+
+        &.show {
+            display: block;
+            opacity: 1;
+            transition: all 0.5s;
+
+            &:hover {
+                transform: scale(1.2);
+                transition: transform 0.3s;
+            }
+        }
+    }
+
+    .masthead-mobile {
+        display: none;
+        position: absolute;
+        top: 30px;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        z-index: 99;
+        transition: all 0.5s;
+
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+
+        img {
+            height: 100px;
+        }
+
+        @media screen and (max-width:$layout-breakpoint-xs) {
+            & {
+                top: 50px;
+
+                img {
+                    height: 70px;
+                }
+            }
+        }
+
+        @media screen and (min-width:$layout-breakpoint-lg) {
+            & {
+                display: none !important;
+            }
+        }
+    }
+
+    .masthead-open-mobile {
+        display: none;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        z-index: 99;
+        transform: translateX(-50%);
+
+        img {
+            height: 150px;
+        }
+
+        @media screen and (max-width:$layout-breakpoint-xs) {
+            img {
+                height: 130px;
+            }
+        }
+
+        @media screen and (min-width:$layout-breakpoint-lg) {
+            & {
+                display: none !important;
+            }
+        }
+    }
+
+    .masthead-open {
+        display: none;
+        position: absolute;
+        top: 0;
+        z-index: 9;
+        text-align: center;
+        width: 100%;
+
+        @media screen and (max-width:$layout-breakpoint-lg) {
+            & {
+                display: none !important;
+            }
+        }
+
+        .features {
+            display: flex;
+            height: calc(100vh - #{$header-height});
+
+            .feature {
+                width: 50%;
+                height: calc(100vh - #{$header-height});
+
+                .center-align {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    img {
+                        width: 100%;
+                        max-height: 120px;
+                    }
+                }
+
+                &:first-of-type {
+                    .center-align {
+                        padding: 0 9em 0 3em;
+
+                        img {
+                            max-height: 120px;
+                        }
+                    }
+                }
+
+                &:last-of-type {
+                    .center-align {
+                        padding: 0 3em 0 9em;
+
+                        img {
+                            max-height: 130px;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (min-height:$layout-breakpoint-lg) {
+                .feature {
+
+                    &:first-of-type {
+                        .center-align {
+                            img {
+                                max-height: 300px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .scroll {
+        display: none;
+        color: transparent;
+        visibility: hidden;
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        width: 44px;
+        height: 44px;
+        z-index: 2;
+        /* rest button default style */
+        cursor: pointer;
+        border: none;
+        background: url("../images/down-arrow.svg") no-repeat center center;
+        transform: translateX(-50%) scale(0);
+        transition: transform 0.3s 0s, visibility 0s 0.3s;
+
+        @media only screen and (min-width: $layout-breakpoint-lg) {
+            & {
+                display: block;
+            }
+        }
+
+
+        &.show {
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+            transition: transform 0.4s 0s, visibility 0s 0s;
+            animation: cd-translate 1.2s 0.8s;
+            animation-iteration-count: 2;
+        }
+
+        &.show:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+
+    .projects-container {
+        position: relative;
+        overflow-x: hidden;
+        z-index: 2;
+
+        .projects-previews {
+            position: relative;
+            width: 100vw;
+            height: calc(100vh - #{$header-height + $masthead-height});
+            margin: 0;
+            padding: 0;
+            z-index: 2;
+
+            &.landing-masthead {
+                opacity: 1;
+                transition: all 1s;
+                background-image: url(../images/KAWS-masthead.svg);
+                background-size: cover;
+                background-position: top center;
+
+                &.chinese {
+                    background-image: url(../images/KAWS-masthead-ch.svg);
+                }
+
+                @media screen and (max-width: $layout-breakpoint-lg) {
+                    & {
+                        background-image: none;
+
+                        &.chinese {
+                            background-image: none;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (min-width: $layout-breakpoint-lg) {
+                & {
+                    height: calc(100vh - #{$header-height});
+
+
+                }
+            }
+
+            li {
+                width: 100%;
+                height: calc(100% / 3);
+                overflow: hidden;
+                opacity: 1;
+                transform: translateZ(1px);
+                transition: transform 0.5s;
+                /* Force Hardware Acceleration */
+                backface-visibility: hidden; //????
+
+                @media screen and (min-width: $layout-breakpoint-lg) {
+                    & {
+                        width: calc(100% / 3);
+                        height: 100%;
+                        float: left;
+                    }
+                }
+
+                &.selected {
+                    opacity: 1;
+                    /* move selected project preview out of the viewport with no transition */
+                    transform: translateX(0%); //????
+                    transition: transform 0s;
+                }
+
+                &.slide-out {
+                    opacity: 0;
+                    transform: translateX(0%); //???
+                }
+            }
+
+            .bg-loaded a {
+                opacity: 1; //????
+            }
+
+            a {
+                display: block;
+                width: 100%;
+                height: calc(100vh - #{$header-height});
+                opacity: 0;
+                /* fixes a bug on projects caption width */
+                transform: translateY(0%); //???
+                transition: opacity 0.5s;
+            }
+        }
+
+        &.project-open .projects-previews {
+            pointer-events: none; ///???
+        }
+
+        .projects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - #{$header-height + $masthead-height});
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+
+            li {
+                position: relative;
+                width: 100%;
+                height: 33.3333333333%;
+                overflow: hidden;
+                opacity: 1;
+                z-index: 9; //???
+                transition: opacity 0.5s;
+                transition: height 0.7s;
+
+                &.selected {
+                    height: 100%;
+                    opacity: 1;
+                    z-index: 10; //???
+                    transition: all 0.7s;
+                }
+
+                &.turn-off {
+                    //????
+                    height: 0;
+                    transition: all 0.7s;
+                }
+
+                .preview-image {
+                    display: block;
+                    height: 100%;
+                    background-image: url(../images/BFF_blue_mobile.jpg);
+                    background-position: 50% 0;
+                    background-size: cover;
+                    transition: transform 0.7s;
+                }
+
+                &:nth-of-type(2) .preview-image {
+                    background-image: url(../images/BFF_pink_mobile.jpg);
+                }
+
+                &:nth-of-type(3) .preview-image {
+                    background-image: url(../images/Companion_mobile.jpg);
+                }
+            }
+
+            @media screen and (min-width:$layout-breakpoint-lg) {
+                & {
+                    height: calc(100vh - #{$header-height});
+
+                    li {
+                        position: absolute;
+                        width: calc(100%/3);
+                        height: 100% !important;
+                        transition: width 0.7s;
+
+                        &:nth-of-type(2) {
+                            left: 50%;
+                            transform: translateX(-49%);
+                        }
+
+                        &:nth-of-type(3) {
+                            right: 0 !important;
+                            left: auto;
+                        }
+
+                        .preview-image {
+                            background-image: url(../images/BFF_blue.jpg);
+                            background-position: 50% 100%;
+                        }
+
+                        &:nth-of-type(2) .preview-image {
+                            background-image: url(../images/BFF_pink.jpg);
+                        }
+
+                        &:nth-of-type(3) .preview-image {
+                            background-image: url(../images/Companion.jpg);
+                        }
+
+                        &.selected {
+                            width: 100%;
+                            transition: width .7s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .project-content {
+        display: none;
+        padding-left: calc(20px + 10 * (100vw - 320px) / 1040); ///????
+        padding-right: calc(20px + 10 * (100vw - 320px) / 1040);
+        padding-bottom: 30px;
+
+        &.show {
+            display: block;
+        }
+    }
+}
+
+.blue {
+    background: $color-blue;
+    background: linear-gradient(0deg, $color-blue 0%, #0a3bc3 100%);
+}
+
+.blue .button,
+.blue a.link {
+    color: $color-blue !important;
+}
+
+.pink {
+    background: $color-pink;
+    background: linear-gradient(0deg, $color-pink 0%, #fea9c2 100%);
+}
+
+.pink .button,
+.pink a.link {
+    color: $color-pink !important;
+}
+
+.grey {
+    background: $color-grey;
+    background: linear-gradient(0deg, $color-grey 0%, #b9b8b8 100%);
+}
+
+.grey .button,
+.grey a.link {
+    color: $color-grey !important;
+}
+
+.masthead {
+    display: block;
+    position: absolute;
+    display: block;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    max-height: 200px;
+    z-index: 9999999;
+    translate: all .7s;
+
+    img {
+        width: 100%;
+    }
+}

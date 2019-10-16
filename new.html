@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KAWS</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-site-header"></div>
+
+    <div class="main-content" id="main">
+
+        <div class="lang-switch show">
+            <p>EN</p>
+            <input id="language" type="checkbox">
+            <label for="language">Select</label>
+            <p>中文</p>
+        </div>
+
+        <div class="masthead-mobile show">
+            <div class="en show"><img src="./images/KAWS-masthead-mobile.svg"></div>
+            <div class="ch"><img src="./images/KAWS-masthead-mobile-ch.svg"></div>
+        </div>
+        <!-- 添加 background-position 动画效果-->
+        <!-- <div class="masthead">
+            <div class="en show"><img src="./images/KAWS-masthead.svg"></div>
+            <div class="ch"><img src="./images/KAWS-masthead-ch.svg"></div>
+        </div> -->
+
+        <div class="masthead-open-mobile">
+            <div class="en show"><img src="./images/KAWS.svg"></div>
+            <div class="ch"><img src="./images/KAWS-ch.svg"></div>
+        </div>
+
+        <div class="masthead-open">
+            <div class="features">
+                <div class="feature">
+                    <div class="center-align en show">
+                        <img src="./images/KAWS.svg">
+                    </div>
+                    <div class="center-align ch">
+                        <img src="./images/KAWS-ch.svg">
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="center-align en show">
+                        <img src="./images/KAWS-dates.svg">
+                    </div>
+                    <div class="center-align ch">
+                        <img src="./images/KAWS-dates-ch.svg">
+                    </div>
+                </div>
+            </div>
+            <button id="scroll" class="scroll cd-text-replace">Scroll</button>
+        </div>
+
+        <a class="close-trigger" href="#primary-nav"></a>
+
+        <div class="projects-container">
+            <ul class="projects-previews landing-masthead">
+                <li><a id="bff-blue" href="#bff-blue"></a></li>
+                <li><a id="bff-pink" href="#bff-pink"></a></li>
+                <li><a id="companion" href="#companion"></a></li>
+            </ul>
+            <ul class="projects">
+                <li>
+                    <div class="preview-image"></div>
+                </li>
+                <li>
+                    <div class="preview-image"></div>
+                </li>
+                <li>
+                    <div class="preview-image"></div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="exhi-content" class="project-content">
+
+            <section class="rd-section" data-section-label="hero-image-left">
+                <div class="inside">
+                    <a href="#" class="features">
+                        <div class="feature rd-hero__thumbnail"
+                            data-img-src="https://www.ngv.vic.gov.au/wp-content/uploads/2019/09/KAWS-DS.jpg" role="img"
+                            style="background-image: url(&quot;https://www.ngv.vic.gov.au/wp-content/uploads/2019/09/KAWS-DS.jpg&quot;);">
+                        </div>
+
+                        <div class="feature rd-hero__meta">
+                            <div class="rd-padding">
+                                <div class="rd-hero__title">
+                                    <div class="en show">NGV design store</div>
+                                    <div class="ch">NGV设计品商店</div>
+                                </div>
+                                <div class="rd-hero__cta">
+                                    <span class="en show">Shop now</span>
+                                    <span class="ch">立即购买</span>
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+            </section>
+            <section class="rd-section" data-section-label="hero-image-left">
+                <div class="inside">
+                    <a class="features" href="#">
+                        <div class="feature rd-hero__thumbnail" data-img-src="https://content.ngv.vic.gov.au/col-images/api/EXHI051800/1280"
+                            role="img"
+                            style="background-image: url(&quot;https://content.ngv.vic.gov.au/col-images/api/EXHI051800/1280&quot;);"></div>
+
+                        <div class="feature rd-hero__meta">
+                            <div class="rd-padding">
+                                <span class="rd-hero__title ">KAWS: PLAYTIME</span>
+                                <span class="rd-hero__text">
+                                    <p><span class="en show">NGV presents <em>KAWS: PLAYTIME</em> a participatory exhibition made especially
+                                            for young visitors to the NGV. </span><span class="ch">NGV推出的《KAWS:
+                                            PLAYTIME》是专为来访NGV的小朋友们设计的互动式展览。这一壮观的艺术装置的主题是KAWS创造的最佳好友（BFF），它有蓝色皮毛，能提供丰富的感官体验，墙纸上有KAWS画的BFF，此外还有大规模的放映。我们热情邀请孩子们去探索不同的空间、依偎在舒适的角落里、或参与有关BFF和友谊的活动。</span>
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="./kaws.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+@keyframes cd-translate {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(10px) translateX(-50%) scale(1);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}

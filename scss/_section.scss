@@ -1,0 +1,117 @@
+.rd-section {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 3px solid #fff;
+
+    max-width: 1420px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    a.rd-hero:hover .rd-hero__title {
+        transform: translateY(-10px);
+    }
+
+    a.rd-hero:hover .rd-hero__text {
+        transform: translateY(-10px);
+    }
+
+    .features {
+        .feature {
+            position: relative;
+            text-align: center;
+            box-sizing: border-box;
+
+            &.rd-hero__thumbnail {
+                width: 100%;
+                padding-top: 100%; // 设置高度跟宽度一样，结合:before??
+                background-position: 50% 50%;
+                background-size: cover;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%; // 设置高度跟宽度一样，结合:before??
+                    height: 100%; // 设置高度跟宽度一样，结合:before??
+                    animation: imgLoader 1.5s linear infinite;
+                    opacity: 0;
+                    transition: opacity 0.7s ease;
+                }
+            }
+
+            &.rd-hero__meta {
+
+                .rd-padding {
+                    padding: 30px;
+                }
+
+                .rd-hero__title {
+                    font-size: calc(28px + 7 * (100vw - 320px) / 1040);
+
+                    margin-bottom: 20px;
+                    transition: 0.3s ease;
+                }
+
+                .rd-hero__text {
+                    transition: 0.3s ease;
+                }
+
+                .rd-hero__cta {
+                    font-size: calc(16px + 2 * (100vw - 320px) / 1040);
+
+                    .fa {
+                        transition: 0.3s ease;
+                        transform: translateX(0);
+
+                        &:before {
+                            content: "\f105";
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+    @media screen and (min-width:$layout-breakpoint-md) {
+        & .features {
+            display: flex;
+            align-items: stretch;
+
+            .feature {
+                flex: 1;
+
+
+                &.rd-hero__thumbnail {
+                    width: 50%;
+                    padding-top: 30%;
+                }
+
+                &.rd-hero__meta {
+                    padding-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes imgLoader {
+
+    0%,
+    100% {
+        background-color: #efefef
+    }
+
+    50% {
+        background-color: #dedede
+    }
+}

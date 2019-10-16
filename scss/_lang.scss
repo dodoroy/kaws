@@ -1,0 +1,11 @@
+/* 多语言显示控制 */
+
+.en,
+.ch {
+    display: none !important;
+}
+
+.en.show,
+.ch.show {
+    display: block !important;
+}
