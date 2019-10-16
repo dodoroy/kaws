@@ -1,12 +1,17 @@
+/* 内容区样式 */
+
+@import "./animation";
+
 .rd-section {
     color: #fff;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 3px solid #fff;
+    padding-bottom: calc(30px + 30 * (100vw - 320px) / 1046);
 
-    max-width: 1420px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-
+    .inside {
+        margin: 0 auto;
+        padding-left: calc(20px + 10 * (100vw - 320px) / 1040); ///????
+        padding-right: calc(20px + 10 * (100vw - 320px) / 1040);
+        max-width: 1420px;
+    }
 
     a {
         color: #fff;
@@ -22,6 +27,10 @@
     }
 
     .features {
+        display: block;
+        border: 3px solid #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+
         .feature {
             position: relative;
             text-align: center;
@@ -54,7 +63,6 @@
 
                 .rd-hero__title {
                     font-size: calc(28px + 7 * (100vw - 320px) / 1040);
-
                     margin-bottom: 20px;
                     transition: 0.3s ease;
                 }
@@ -79,7 +87,6 @@
             }
         }
 
-
     }
 
     @media screen and (min-width:$layout-breakpoint-md) {
@@ -101,17 +108,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes imgLoader {
-
-    0%,
-    100% {
-        background-color: #efefef
-    }
-
-    50% {
-        background-color: #dedede
     }
 }

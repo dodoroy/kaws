@@ -1,3 +1,4 @@
+/* 动画样式 */
 @keyframes cd-translate {
     0% {
         transform: translateX(-50%) scale(1);
@@ -9,5 +10,17 @@
 
     100% {
         transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes imgLoader {
+
+    0%,
+    100% {
+        background-color: #efefef
+    }
+
+    50% {
+        background-color: #dedede
     }
 }

@@ -31,8 +31,8 @@ $(function () {
         navigationTrigger = $('.close-trigger'),
         // navigation = $('.cd-primary-nav'),
         langSwitch = $('.lang-switch'),
-        mobileMasthead = $('.masthead-mobile'),
-        mobileMastheadOpen = $('.masthead-open-mobile'),
+        mobileMasthead = $('.landing-masthead-mobile'),
+        mobileMastheadOpen = $('.landing-masthead-mobile-open'),
         exhibitionInfo = $('#exhi-content'),
         //if browser doesn't support CSS transitions...
         transitionsNotSupported = ($('.no-csstransitions').length > 0);
@@ -127,7 +127,7 @@ $(function () {
         //$('.landing-masthead').fadeOut('fast');
 
         setTimeout(function () {
-            $('.masthead-open').fadeIn('slow');
+            $('.landing-masthead-open').fadeIn('slow');
             mobileMastheadOpen.fadeIn('slow');
         }, 250);
         $('#scroll').addClass('show');
@@ -166,13 +166,15 @@ $(function () {
         exhibitionInfo.removeClass('show');
         langSwitch.addClass('show');
         mobileMasthead.addClass('show');
-        mobileMastheadOpen.fadeOut('fast');
+        mobileMastheadOpen.fadeOut('fast');//????fadeout 不起作用
+        mobileMastheadOpen.hide();
         $('#main').css('background-color', '#0E3DC1');
         setTimeout(function () {
             //$('.landing-masthead').fadeIn('fast');
             $('.projects-previews').addClass('landing-masthead');
         }, 250);
-        $('.masthead-open').fadeOut('fast');
+        $('.landing-masthead-open').fadeOut('fast');
+        $('.landing-masthead-open').hide()
         setTimeout(function () {
             $('.projects li.turn-off').fadeIn('fast');
             $('.projects li.turn-off').removeClass('turn-off');

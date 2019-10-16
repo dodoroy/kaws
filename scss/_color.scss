@@ -1,0 +1,31 @@
+/* 颜色相关 */
+
+.blue {
+    background: $color-blue;
+    background: linear-gradient(0deg, $color-blue 0%, #0a3bc3 100%);
+}
+
+.blue .button,
+.blue a.link {
+    color: $color-blue !important;
+}
+
+.pink {
+    background: $color-pink;
+    background: linear-gradient(0deg, $color-pink 0%, #fea9c2 100%);
+}
+
+.pink .button,
+.pink a.link {
+    color: $color-pink !important;
+}
+
+.grey {
+    background: $color-grey;
+    background: linear-gradient(0deg, $color-grey 0%, #b9b8b8 100%);
+}
+
+.grey .button,
+.grey a.link {
+    color: $color-grey !important;
+}
